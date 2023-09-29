@@ -32,9 +32,10 @@ public class usrh
     {
             int out = 404; 
             int get_ans;
+            
         if(give_con1 == 1)
             {
-                get_ans = usrh.check();
+                get_ans = usrh.check(give_con1);
                 System.out.println("in GUI");
                 if(get_ans == 1)
                 {
@@ -47,11 +48,12 @@ public class usrh
             }
         if(give_con1 == 0)
             {
-                int cha = 1;
+                int cha = 0;
                 int temp;
+                int wrong = 1;
                 String [] change = new String[3];
                 change = usrh.storage(cha);
-                temp = usrh.eve(cha);
+                temp = usrh.eve(wrong);
             }
         return out ; 
     }
@@ -59,10 +61,14 @@ public class usrh
     {
         Scanner obj = new Scanner(System.in);
         String sto [] = new String [2];
-        sto[0] = "user_1";
-        sto[1] = "10100307";
         if(cha == 1)
         {
+            sto[0] = "user_1";
+            sto[1] = "10100307";
+        }
+        if(cha == 0)
+        {
+            System.out.println("Enter new password");
             int i;
             for (i = 0; i <2; i++)         
             {
@@ -72,16 +78,16 @@ public class usrh
         }
         return sto;
     }
-    public static int check()
+    public static int check(int give_con1)
     {
-        int cha = 0;
         int out = 0 ;
         String check_ans [] = new String[2];
-        check_ans = usrh.storage(cha);
+        check_ans = usrh.storage(give_con1);
         Scanner obj = new Scanner(System.in);
         int i;
         String input_ans[] = new String[3];
         System.out.println("user_1,10100307");
+        System.out.println("Enter user name and password");
         for (i = 0; i <2; i++)         
             {
                 input_ans[i] = obj.nextLine();
