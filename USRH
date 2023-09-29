@@ -1,0 +1,99 @@
+import java.util.Scanner;
+public class usrh
+{
+    public static void main(String[]args)//1
+    {
+        display();
+    }
+    public static void display()//2
+    {
+        Scanner obj = new Scanner(System.in);
+        System.out.println("Enter signin or signup");
+        String answer = obj.nextLine();
+        int give_con1 = usrh.check_val(answer);
+        int give_con2 = usrh.eve(give_con1);
+    }
+    public static int check_val (String answer)//3
+    {
+        String signin = "signin";
+        String signup = "signup";
+        int out = 0;
+        if(answer.equals(signin))
+        {
+            out = 1;
+        }
+        else
+        {
+            out = 0;
+        }
+        return out;
+    }
+    public static int eve (int give_con1)//4
+    {
+            int out = 404; 
+            int get_ans;
+        if(give_con1 == 1)
+            {
+                get_ans = usrh.check();
+                System.out.println("in GUI");
+                if(get_ans == 1)
+                {
+                    System.out.println("signed in");
+                }
+                else
+                {
+                    System.out.println("Wrong user name or password");
+                }
+            }
+        if(give_con1 == 0)
+            {
+                int cha = 1;
+                int temp;
+                String [] change = new String[3];
+                change = usrh.storage(cha);
+                temp = usrh.eve(cha);
+            }
+        return out ; 
+    }
+    public static String[] storage(int cha)//5
+    {
+        Scanner obj = new Scanner(System.in);
+        String sto [] = new String [2];
+        sto[0] = "user_1";
+        sto[1] = "10100307";
+        if(cha == 1)
+        {
+            int i;
+            for (i = 0; i <2; i++)         
+            {
+                sto[i] = obj.nextLine();
+            }
+            
+        }
+        return sto;
+    }
+    public static int check()
+    {
+        int cha = 0;
+        int out = 0 ;
+        String check_ans [] = new String[2];
+        check_ans = usrh.storage(cha);
+        Scanner obj = new Scanner(System.in);
+        int i;
+        String input_ans[] = new String[3];
+        System.out.println("user_1,10100307");
+        for (i = 0; i <2; i++)         
+            {
+                input_ans[i] = obj.nextLine();
+            }
+            String check_ans_string_1= check_ans[0];
+            String intput_ans_string_1 = input_ans[0];
+            String check_ans_string_2 = check_ans[0];
+            String input_ans_string_2 = check_ans[0];
+        if((check_ans_string_1.equals(intput_ans_string_1))&&(check_ans_string_2.equals(input_ans_string_2)))
+        {
+            out =1;
+        }
+        return out;
+    }
+}
